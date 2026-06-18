@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'IBM Plex Sans Arabic', system-ui, -apple-system, sans-serif;
+  --font-display: 'IBM Plex Sans Arabic', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --color-brand-primary: #090d16; /* Deep Cosmic Black */
+  --color-brand-secondary: #0ea5e9; /* Sky 500 */
+  --color-brand-accent: #10b981; /* Emerald 500 */
+}
+
+body {
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  background-color: #fafbfd;
+  background-image: 
+    radial-gradient(circle at 0% 0%, rgba(14, 165, 233, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(16, 185, 129, 0.03) 0%, transparent 40%),
+    radial-gradient(rgba(148, 163, 184, 0.09) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 24px 24px;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* تحسين السكرول بار لجعل شكل المتجر فخم */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 12px;
+  border: 2px solid #f8fafc;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* توهج وتقنيات جمالية متقدمة */
+.premium-glow {
+  box-shadow: 0 0 25px -5px rgba(14, 165, 233, 0.15), 0 0 15px -5px rgba(16, 185, 129, 0.1);
+}
+
+.premium-card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 40px -15px rgba(15, 23, 42, 0.08), 0 0 30px -5px rgba(14, 165, 233, 0.05);
+  border-color: rgba(14, 165, 233, 0.3);
+}
+
+.radial-bg-glow {
+  background: radial-gradient(circle at 50% -20%, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+}
+
+.product-img-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.02), transparent);
+  pointer-events: none;
+}
+
+/* حركة مدارية للوغو مريحة ومبنية على مستوا الهاردوير */
+@keyframes logo-orbit-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-logo-orbit {
+  animation: logo-orbit-rotate 25s linear infinite;
+  transform-origin: center;
+}
+
+/* نبض اللوغو الكوني بلمسة ناعمة */
+@keyframes logo-star-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.95;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+.animate-logo-star {
+  animation: logo-star-pulse 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+

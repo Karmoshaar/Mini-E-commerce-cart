@@ -1,0 +1,6 @@
+{
+  "name": "Aether Select",
+  "description": "أثِير سيلكت - متجر إلكتروني فاخر يجمع بين دقة الهندسة البرمجية وقمة التميز البصري لمفهوم الملحقات الذكية.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

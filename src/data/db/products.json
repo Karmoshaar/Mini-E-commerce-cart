@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "سماعات رأس لاسلكية عازلة للضوضاء",
+    "price": 299,
+    "originalPrice": 399,
+    "category": "إلكترونيات",
+    "image": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=800&auto=format&fit=crop&q=80",
+    "description": "استمتع بنقاء صوتي استثنائي مع ميزة إلغاء الضوضاء النشطة الفائقة وبطارية تدوم حتى 40 ساعة متواصلة.",
+    "rating": 4.8
+  },
+  {
+    "id": 2,
+    "name": "ساعة يد رياضية ذكية برو",
+    "price": 189,
+    "originalPrice": 249,
+    "category": "ساعات ذكية",
+    "image": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=800&auto=format&fit=crop&q=80",
+    "description": "شاشة AMOLED عالية الدقة، مراقبة مستمرة لمعدل نبضات القلب والأنشطة الرياضية، ومقاومة كاملة للماء والأوساخ.",
+    "rating": 4.5
+  },
+  {
+    "id": 3,
+    "name": "لوحة مفاتيح ميكانيكية مضيئة RGB فخمة",
+    "price": 125,
+    "category": "إلكترونيات",
+    "image": "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=800&auto=format&fit=crop&q=80",
+    "description": "أزرار ميكانيكية مخصصة سريعة الاستجابة مع إضاءة خلفية RGB قابلة للتخصيص بالكامل ومصممة للاستخدام المكثف والكتابة المريحة.",
+    "rating": 4.9
+  },
+  {
+    "id": 4,
+    "name": "حقيبة ظهر مريحة ضد الماء",
+    "price": 79,
+    "originalPrice": 99,
+    "category": "ملابس وإكسسوارات",
+    "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&auto=format&fit=crop&q=80",
+    "description": "تحتوي على منفذ شحن USB مدمج وجيوب مخصصة لحماية اللابتوب والأجهزة الإلكترونية والكتب، مثالية للسفر والدراسة.",
+    "rating": 4.6
+  },
+  {
+    "id": 5,
+    "name": "شريط إضاءة ذكي تفاعلي RGB",
+    "price": 39,
+    "category": "إلكترونيات",
+    "image": "https://images.unsplash.com/photo-1563089145-599997674d42?w=800&auto=format&fit=crop&q=80",
+    "description": "أضف أجواءً ساحرة لمكتبك مع شريط الإضاءة الذكي التفاعلي الذي يتزامن مع الموسيقى وألعاب الفيديو بألوان RGB مذهلة وتأثيرات ديناميكية قابلة للتخصيص عبر التطبيق الرئيسي.",
+    "rating": 4.7
+  }
+]
