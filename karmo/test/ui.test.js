@@ -48,4 +48,5 @@ test('now playing / queue / help embeds and buttons pass discord.js validation',
   const { commands } = createCommands({});
   const help = helpEmbed(commands, '!').toJSON();
   assert.ok(help.description.length <= 4096, `help is ${help.description.length} chars`);
+  assert.match(help.title, /Karmo/);
 });

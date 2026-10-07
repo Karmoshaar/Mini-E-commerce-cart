@@ -1,4 +1,5 @@
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, escapeMarkdown } from 'discord.js';
+import { config } from './config.js';
 import { formatDuration, isHttpUrl, progressBar, truncate } from './util.js';
 
 export const COLOR = 0x8b5cf6;
@@ -108,7 +109,7 @@ export function helpEmbed(commands, prefix) {
   });
   return new EmbedBuilder()
     .setColor(COLOR)
-    .setTitle('🎵 أوامر بوت الموسيقى')
+    .setTitle(`🎵 أوامر ${config.botName}`)
     .setDescription(
       `${lines.join('\n')}\n\n` +
         `💡 الأوامر شغالة كمان كـ Slash: \`/p\`, \`/s\`... وفيك تستعمل أزرار رسالة "يشتغل الآن".\n` +

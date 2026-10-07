@@ -36,7 +36,7 @@ export class PlayerManager {
     if (playing) {
       user.setActivity(truncate(playing.current.title, 120), { type: ActivityType.Listening });
     } else {
-      user.setActivity(`${config.prefix}h | 🎵`, { type: ActivityType.Listening });
+      user.setActivity(`${config.prefix}h | 🎵 ${config.botName}`, { type: ActivityType.Listening });
     }
   }
 

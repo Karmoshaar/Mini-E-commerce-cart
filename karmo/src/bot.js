@@ -93,6 +93,17 @@ function slashDefinitions(commands) {
   });
 }
 
+async function applyBotName(user) {
+  if (!config.botName || user.username === config.botName) return;
+  try {
+    await user.setUsername(config.botName);
+    log.info(`Renamed the bot to ${config.botName}.`);
+  } catch (error) {
+    // Usually Discord's limit of 2 renames per hour; it is retried on the next start.
+    log.warn(`Could not rename the bot to ${config.botName}: ${error.message}`);
+  }
+}
+
 function createBot({ messageContent }) {
   const intents = [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildMessages];
   if (messageContent) intents.push(GatewayIntentBits.MessageContent);
@@ -115,6 +126,7 @@ function createBot({ messageContent }) {
 
   client.once(Events.ClientReady, async (ready) => {
     log.info(`Logged in as ${ready.user.tag} (${ready.guilds.cache.size} servers)`);
+    await applyBotName(ready.user);
     const invite = ready.generateInvite({
       scopes: [OAuth2Scopes.Bot, OAuth2Scopes.ApplicationsCommands],
       permissions: BOT_PERMISSIONS,
@@ -129,7 +141,7 @@ function createBot({ messageContent }) {
     } catch (error) {
       log.warn(`Could not register slash commands: ${error.message}`);
     }
-    log.info(`Ready! Type ${config.prefix}h in your server.`);
+    log.info(`${ready.user.username} is ready! Type ${config.prefix}h in your server.`);
   });
 
   client.on(Events.MessageCreate, async (message) => {

@@ -23,6 +23,8 @@ function str(name, fallback = '') {
 
 export const config = {
   token: str('DISCORD_TOKEN'),
+  // The bot renames itself to this on startup (Discord allows 2 renames per hour).
+  botName: str('BOT_NAME', 'Karmo'),
   prefix: str('PREFIX', '!'),
   // Register slash commands on one server only (instant) instead of globally.
   guildId: str('GUILD_ID'),
