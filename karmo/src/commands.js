@@ -71,7 +71,8 @@ export function createCommands(manager) {
   const commands = [
     {
       name: 'play',
-      aliases: ['p', 'شغل'],
+      keys: ['p', 'ش', 'شغل'],
+      aliases: [],
       usage: '<رابط أو اسم>',
       description: 'شغّل أي رابط (يوتيوب، سبوتيفاي، ساوندكلاود...) أو ابحث باسم الأغنية',
       arg: 'الرابط أو اسم الأغنية',
@@ -80,16 +81,18 @@ export function createCommands(manager) {
     },
     {
       name: 'playnext',
-      aliases: ['pn'],
+      keys: ['t', 'بعدها'],
+      aliases: ['pn', 'top'],
       usage: '<رابط أو اسم>',
-      description: 'متل p بس بتشتغل بعد الأغنية الحالية مباشرة',
+      description: 'متل التشغيل، بس الأغنية بتشتغل بعد الحالية مباشرة',
       arg: 'الرابط أو اسم الأغنية',
       file: true,
       run: (ctx) => play(ctx, { next: true }),
     },
     {
       name: 'skip',
-      aliases: ['s', 'n', 'تخطي'],
+      keys: ['s', 'ت', 'تخطي'],
+      aliases: ['n', 'next', 'سكب', 'عدي'],
       usage: '[عدد]',
       description: 'تخطّى الأغنية (أو عدة أغاني)',
       arg: 'كم أغنية بدك تتخطى',
@@ -102,7 +105,8 @@ export function createCommands(manager) {
     },
     {
       name: 'back',
-      aliases: ['b', 'prev'],
+      keys: ['b', 'ر', 'رجع'],
+      aliases: ['prev', 'ارجع'],
       description: 'رجّع الأغنية اللي قبل',
       voice: true,
       run(ctx, player) {
@@ -112,7 +116,8 @@ export function createCommands(manager) {
     },
     {
       name: 'pause',
-      aliases: ['ps'],
+      keys: ['w', 'استنى'],
+      aliases: ['ps', 'مؤقت'],
       description: 'إيقاف مؤقت / كمّل (نفس الأمر)',
       voice: true,
       run(ctx, player) {
@@ -122,7 +127,8 @@ export function createCommands(manager) {
     },
     {
       name: 'resume',
-      aliases: ['r'],
+      keys: ['r', 'ك', 'كمل'],
+      aliases: ['continue'],
       description: 'كمّل التشغيل',
       voice: true,
       run(ctx, player) {
@@ -132,7 +138,8 @@ export function createCommands(manager) {
     },
     {
       name: 'stop',
-      aliases: ['st', 'وقف'],
+      keys: ['x', 'ط', 'اطفي', 'وقف'],
+      aliases: ['st', 'طفي'],
       description: 'وقّف التشغيل وفضّي القائمة',
       voice: true,
       run(ctx, player) {
@@ -142,6 +149,7 @@ export function createCommands(manager) {
     },
     {
       name: 'nowplaying',
+      keys: ['i', 'شو'],
       aliases: ['np'],
       description: 'شو عم يشتغل هلق',
       run(ctx, player) {
@@ -151,7 +159,8 @@ export function createCommands(manager) {
     },
     {
       name: 'queue',
-      aliases: ['q', 'قائمة'],
+      keys: ['q', 'ق', 'قائمة'],
+      aliases: ['list', 'لستة', 'القائمة'],
       usage: '[صفحة]',
       description: 'اعرض قائمة التشغيل',
       arg: 'رقم الصفحة',
@@ -163,7 +172,8 @@ export function createCommands(manager) {
     },
     {
       name: 'autoplay',
-      aliases: ['ap'],
+      keys: ['a', 'تلقائي'],
+      aliases: ['ap', 'auto'],
       description: 'شغّل/طفّي التشغيل التلقائي (لما تخلص الأغاني بكمّل بأغاني من نفس النمط)',
       voice: true,
       run(ctx, player) {
@@ -178,7 +188,8 @@ export function createCommands(manager) {
     },
     {
       name: 'loop',
-      aliases: ['l', 'تكرار'],
+      keys: ['l', 'كرر'],
+      aliases: ['تكرار', 'repeat'],
       usage: '[off | song | queue]',
       description: 'التكرار: مطفي ← الأغنية ← القائمة',
       arg: 'off / song / queue',
@@ -198,7 +209,8 @@ export function createCommands(manager) {
     },
     {
       name: 'volume',
-      aliases: ['v', 'vol', 'صوت'],
+      keys: ['v', 'ص', 'صوت'],
+      aliases: ['vol'],
       usage: '[0-200]',
       description: 'اعرض أو غيّر الصوت',
       arg: 'من 0 لـ 200',
@@ -213,7 +225,8 @@ export function createCommands(manager) {
     },
     {
       name: 'shuffle',
-      aliases: ['sh'],
+      keys: ['m', 'خ', 'خلط'],
+      aliases: ['sh', 'mix'],
       description: 'اخلط القائمة',
       voice: true,
       run(ctx, player) {
@@ -223,7 +236,8 @@ export function createCommands(manager) {
     },
     {
       name: 'remove',
-      aliases: ['rm'],
+      keys: ['d', 'شيل'],
+      aliases: ['rm', 'احذف', 'delete'],
       usage: '<رقم>',
       description: 'شيل أغنية من القائمة برقمها',
       arg: 'رقم الأغنية بالقائمة',
@@ -235,7 +249,8 @@ export function createCommands(manager) {
     },
     {
       name: 'clear',
-      aliases: ['c'],
+      keys: ['c', 'فضي'],
+      aliases: ['امسح'],
       description: 'فضّي القائمة (الأغنية الحالية بتكمّل)',
       voice: true,
       run(ctx, player) {
@@ -244,7 +259,8 @@ export function createCommands(manager) {
     },
     {
       name: 'seek',
-      aliases: ['sk'],
+      keys: ['g', 'قدم'],
+      aliases: ['sk', 'goto'],
       usage: '<1:30>',
       description: 'روح لوقت معيّن بالأغنية',
       arg: 'الوقت، مثلاً 1:30 أو 90',
@@ -258,7 +274,8 @@ export function createCommands(manager) {
     },
     {
       name: 'join',
-      aliases: ['j'],
+      keys: ['j', 'فوت'],
+      aliases: ['تعا', 'come'],
       description: 'فوت على رومك الصوتي',
       async run(ctx) {
         const player = await joinMember(ctx, manager);
@@ -267,7 +284,8 @@ export function createCommands(manager) {
     },
     {
       name: 'leave',
-      aliases: ['dc', 'اطلع'],
+      keys: ['e', 'اطلع'],
+      aliases: ['dc', 'باي', 'bye', 'exit'],
       description: 'اطلع من الروم الصوتي',
       voice: true,
       run(ctx, player) {
@@ -277,7 +295,8 @@ export function createCommands(manager) {
     },
     {
       name: 'help',
-      aliases: ['h', 'مساعدة'],
+      keys: ['h', 'مساعدة'],
+      aliases: ['اوامر'],
       description: 'قائمة الأوامر',
       run(ctx) {
         return ctx.reply({ embeds: [helpEmbed(commands, config.prefix)] });
@@ -287,14 +306,27 @@ export function createCommands(manager) {
 
   const byName = new Map();
   for (const command of commands) {
-    for (const name of [command.name, ...command.aliases]) {
+    for (const name of [command.name, ...command.keys, ...command.aliases].map(normalizeCommandName)) {
       if (byName.has(name)) throw new Error(`Duplicate command name: ${name}`);
       byName.set(name, command);
     }
   }
 
-  return { commands, find: (name) => byName.get(name?.toLowerCase()) ?? null };
+  return { commands, find: (name) => byName.get(normalizeCommandName(name ?? '')) ?? null };
 }
 
-/** Slash command names: the short alias (e.g. /p, /s, /q). */
-export const slashName = (command) => command.aliases.find((a) => /^[a-z]+$/.test(a)) ?? command.name;
+/**
+ * Lowercase, and make Arabic spelling variants equal: harakat/shadda and tatweel removed,
+ * أ/إ/آ → ا, ى → ي, ة → ه, ؤ → و, ئ → ي. So "اطفى", "اطفي" and "شغّل", "شغل" all match.
+ */
+export function normalizeCommandName(name) {
+  return String(name)
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\p{M}\u0640]/gu, '')
+    .replace(/ى/g, 'ي')
+    .replace(/ة/g, 'ه');
+}
+
+/** Slash command names: the one-letter English key (/p, /s, /x...). */
+export const slashName = (command) => command.keys[0];

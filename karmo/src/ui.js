@@ -41,7 +41,7 @@ export function nowPlayingEmbed(player, { showProgress = false } = {}) {
       { name: 'الصوت', value: `${player.volume}%`, inline: true },
       {
         name: 'التالي',
-        value: next ? trackLine(next) : player.autoplay ? '📻 أغنية من نفس النمط (تلقائي)' : 'ما في شي — ضيف بـ `p`',
+        value: next ? trackLine(next) : player.autoplay ? '📻 أغنية من نفس النمط (تلقائي)' : `ما في شي — ضيف بـ \`${config.prefix}p\``,
       },
     )
     .setFooter({
@@ -104,8 +104,8 @@ export function queueEmbed(player, page = 1) {
 
 export function helpEmbed(commands, prefix) {
   const lines = commands.map((cmd) => {
-    const names = [cmd.name, ...cmd.aliases].map((n) => `\`${prefix}${n}\``).join(' ');
-    return `${names}${cmd.usage ? ` \`${cmd.usage}\`` : ''}\n└ ${cmd.description}`;
+    const names = cmd.keys.map((n) => `\`${prefix}${n}\``).join('  ');
+    return `${names}${cmd.usage ? `  ${cmd.usage}` : ''}\n└ ${cmd.description}`;
   });
   return new EmbedBuilder()
     .setColor(COLOR)
